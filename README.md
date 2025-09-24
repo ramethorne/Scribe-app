@@ -56,6 +56,55 @@ A lightweight Flask application that lets you upload existing meeting recordings
 
    After ElevenLabs finishes processing, the transcript (and any optional summary) is rendered directly in the results panel on the same page.
 
+## Sharing your copy on GitHub (beginner friendly)
+
+If you only see the README file on GitHub right now, it just means you have not pushed the rest of the project yet. Follow these steps once and your full copy of the app will appear on GitHub. The instructions are written for absolute beginners—just go in order.
+
+1. **Create an empty GitHub repository**
+
+   1. Sign in at [https://github.com](https://github.com).
+   2. Click the ➕ in the top-right corner and choose **New repository**.
+   3. Give it a name (for example `scribe-app`) and press **Create repository**. Do not add a README, `.gitignore`, or license—the project already has those.
+
+2. **Get the project onto your computer (only once)**
+
+   ```bash
+   # If you do not already have git installed, download it from https://git-scm.com/downloads
+   git clone https://github.com/your-username/scribe-app.git
+   cd scribe-app
+   ```
+
+   If you already downloaded a ZIP from this project earlier, open that ZIP, copy its contents, and paste/replace them inside the new `scribe-app` folder you just cloned. You should see files such as `app.py`, `requirements.txt`, `static/`, and `templates/` next to `README.md`.
+
+3. **Save (commit) the project locally**
+
+   ```bash
+   git status             # Shows which files are ready
+   git add .              # Stage everything
+   git commit -m "Add Scribe meeting transcriber"
+   ```
+
+   After the commit finishes you can type `git status` again. If it says “nothing to commit, working tree clean” you are ready for the final step.
+
+4. **Push (upload) the commit to GitHub**
+
+   ```bash
+   git push origin main   # or "master" if GitHub named your default branch that
+   ```
+
+   Refresh your repository page on GitHub. All of the project files—including the app, frontend assets, and this README—will now be visible. From this point forward, whenever you make changes locally repeat only steps 3 and 4 to update GitHub.
+
+### Alternative: upload without using the command line
+
+If you prefer not to install git, you can also upload through the GitHub website:
+
+1. Create a new repository as in step 1 above.
+2. Click **uploading an existing file** on the empty repository page.
+3. Drag the entire project folder (or individual files) into the browser window.
+4. Scroll down, write a short commit message, and click **Commit changes**.
+
+This method is slower for future updates but works fine if you only need to upload the project once.
+
 ## Notes on the Scribe API
 
 - The backend proxies requests to `https://api.elevenlabs.io/v1/speech-to-text/stream` and forwards optional parameters such as diarization, speaker labels, summaries, and temperature.
