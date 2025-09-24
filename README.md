@@ -18,6 +18,8 @@ A lightweight Flask application that lets you upload existing meeting recordings
 
 ## Getting started
 
+> 💡 There is no hosted demo. To try the app you need to run the Flask server locally so the frontend can talk to the backend that proxies ElevenLabs' API.
+
 1. **Clone & set up the project**
 
    ```bash
@@ -38,18 +40,21 @@ A lightweight Flask application that lets you upload existing meeting recordings
 
 3. **Run the development server**
 
+   With the virtual environment active, start Flask:
+
    ```bash
-   flask --app app run
+   flask --app app run  # or `python app.py`
    ```
 
-   The application will be available at http://127.0.0.1:5000/.
+   This boots both the UI and the API at http://127.0.0.1:5000/. Open that URL in a browser tab to use the app interactively.
 
-4. **Transcribe audio**
+4. **Use the app**
 
-   - Upload a meeting recording from disk, _or_
-   - Click **Start recording** to capture audio via your microphone, then choose **Transcribe recording**.
+   - When prompted, grant your browser permission to use the microphone so recording works.
+   - Click **Start recording** to capture a clip in the browser, then **Transcribe recording** once you're done. The audio is streamed through the Flask backend to ElevenLabs for transcription.
+   - Alternatively, drag an existing audio file into the upload box and press **Transcribe file**.
 
-   Once the API responds, the transcript will appear on the page. If you enable summaries, the summary card will populate when Scribe returns summary data.
+   After ElevenLabs finishes processing, the transcript (and any optional summary) is rendered directly in the results panel on the same page.
 
 ## Notes on the Scribe API
 
